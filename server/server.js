@@ -13,8 +13,7 @@ app.use(cors());
 app.use("/auth", userRouter);
 
 dotenv.config();
-const DB = `mongodb+srv://kj123:${process.env.DB_PASSWORD}@shopcool.d2xhxfa.mongodb.net/
-ShopCool?retryWrites=true&w=majority`;
+const DB = process.env.MONGO_URI;
 mongoose.connect(DB);
 
 app.listen(port, () =>

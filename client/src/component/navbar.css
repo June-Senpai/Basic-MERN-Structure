@@ -1,0 +1,60 @@
+:root {
+  --background-of-navbar:rgb(7, 30, 56);
+  --background:rgba(85,214,170,.85)
+  --light-color: white;
+  --dark-color: black;
+  --navbar-text-color:white;
+  --navbar-text-size:clamp(1rem,2vw + 1rem,3rem);
+  --navbar-text-size-button:clamp(1rem,1vw+1rem,3rem);
+}
+.light {
+  --bg-color: var(--light-color);
+}
+
+.dark {
+  --bg-color: var(--dark-color);
+  background: var(--dark-color);
+}
+.navbar {
+  background-color: var(--bg-color);
+  background-color: var(--background-of-navbar);
+  height: 4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  padding: 1rem 1rem;
+}
+
+.navbar a{
+  text-decoration: none;
+  color: var(--navbar-text-color);
+  font-size:var(--navbar-text-size)
+}
+
+.navbar .left-side-navbar{
+  flex: 50%;
+  margin: 1em;
+}
+
+.navbar .right-side-navbar{
+  display: flex;
+  flex: 50%;
+  margin: 1em;
+  gap: 1em;
+}
+.toggle-theme-button{
+  margin-right: 2em;
+  background-color: transparent;
+  font-size:var(--navbar-text-size-button);
+  border: none;
+  color: red;
+}
+.search{
+  width: 30%;
+  height: 2rem;
+  box-shadow: 0 0 5px white;
+  border:transparent;
+  border-radius: 1rem;
+  padding: 0 1rem;
+}
