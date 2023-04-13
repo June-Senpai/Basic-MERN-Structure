@@ -1,8 +1,33 @@
+:root {
+  --background-of-navbar:rgb(0, 4, 9);
+  --background:rgba(85,214,170,.85)
+  --light-color: white;
+  --dark-color: black;
+  --navbar-text-color:white;
+  --navbar-text-size:clamp(1rem,2vw + 1rem,3rem);
+  --navbar-text-size-button:clamp(1rem,1vw+1rem,3rem);
+  --color1:rgb(0, 0, 0);
+  --color2:green;
+  --color3:black;
+  --search-bg-color: white; 
+  --search-text-color: black;
+}
 * {
   box-sizing: border-box;
+}
+body.light {
+  --color1: white;
+  --color2: green;
+  --color3: teal;
+  --direction: 0deg;
 }
 
 body {
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
 }
+.index{
+  z-index: 99999;
+}
+

@@ -1,10 +1,13 @@
 import React from "react";
-import "./logo.css";
+import "./cart.css";
 import { ThemedBackground } from "../../component/ThemedBackground";
-export const Logo = () => {
+export const Cart = () => {
   return (
-    <div className="logo-container">
+    <div className="parent">
       <ThemedBackground />
+      <div className="index">
+        <h1>aajsjdjasdj</h1>
+      </div>
     </div>
   );
 };

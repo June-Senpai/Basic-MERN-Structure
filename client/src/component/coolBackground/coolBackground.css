@@ -1,0 +1,38 @@
+.container {
+  display: grid;
+  gap: 0.3rem;
+  column-gap: 0.3rem;
+  background-size: 70% 30%;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  animation: fade 5s linear infinite;
+  background-image: linear-gradient(black, green, black);
+  /* background-image: linear-gradient(45deg, white, teal, yellow); */
+  position: relative;
+}
+
+.box {
+  width: 5rem;
+  height: 5rem;
+  background: black;
+  transition: background 3s;
+  position: relative;
+}
+.box:hover {
+  background: green;
+  transition: background 0s;
+}
+.small {
+  height: 1rem;
+  position: relative;
+}
+@keyframes fade {
+  0% {
+    background-position: 0% 0%;
+
+    /* background-color: red; */
+  }
+
+  100% {
+    background-position: -200% -200%;
+  }
+}

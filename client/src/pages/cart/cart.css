@@ -1,0 +1,16 @@
+.parent {
+  position: relative;
+  padding: 1em;
+}
+.child {
+  position: absolute;
+  padding-top: 5rem;
+  /* background: red; */
+  top: 0;
+  bottom: 50%;
+  /* left: 45%; */
+  left: 25%;
+  right: 25%;
+  color: var(--color1);
+  z-index: 100;
+}

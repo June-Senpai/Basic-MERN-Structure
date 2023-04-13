@@ -7,22 +7,28 @@ import {
 } from "react-router-dom";
 import { Logo } from "./pages/Logo/Logo";
 import { Search } from "./pages/Search";
-import { Cart } from "./pages/Cart";
-import { Auth } from "./pages/login/Login";
-import Navbar from "./component/navbar";
-import { createContext, useContext, useState } from "react";
+import { Cart } from "./pages/cart/Cart";
+import Auth from "./pages/Auth/Auth";
+import Navbar from "./component/navbar/navbar";
+import { createContext, useContext, useState, useEffect } from "react";
+
 type Theme = "dark" | "light";
 type ThemeContextType = {
   theme: Theme;
   setTheme: React.Dispatch<React.SetStateAction<Theme>>;
 };
-const ThemeContext = createContext<ThemeContextType>({
+export const ThemeContext = createContext<ThemeContextType>({
   theme: "dark",
   setTheme: () => {},
 });
 
 function App() {
   const [theme, setTheme] = useState<Theme>("light");
+
+  useEffect(() => {
+    document.body.className = theme; // add theme value as class name to body element
+  }, [theme]);
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <div className={theme}>

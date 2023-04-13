@@ -1,0 +1,32 @@
+.white-Container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  column-gap: 1.5rem;
+  gap: 1.5rem;
+  position: relative;
+  padding-top: 1rem;
+}
+
+.front-box {
+  position: relative;
+  height: 5rem;
+  width: 5rem;
+  background-color: white;
+  /* border: solid 1rem transparent; */
+  /* outline: solid transparent 1rem; */
+}
+.front-box:hover::before {
+  /* border: solid 1rem pink; */
+  /* outline: solid pink 1rem; */
+  background-color: pink;
+  transition: background-color;
+}
+
+.front-box::before {
+  content: "";
+  transition: background-color 300ms;
+  position: absolute;
+  inset: -1rem;
+  background-color: transparent;
+  z-index: -1;
+}

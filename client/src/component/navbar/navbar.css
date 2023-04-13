@@ -1,0 +1,107 @@
+.light {
+  --bg-color: var(--light-color);
+}
+
+.dark {
+  --bg-color: var(--dark-color);
+  background: var(--dark-color);
+}
+.navbar {
+  background-color: var(--color1);
+  height: 4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  padding: 1rem 1rem;
+  box-shadow: 0 0 5px var(--color2);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--color3);
+  font-size: var(--navbar-text-size);
+  /* text-shadow: 1px 1px 2px #fffb00; */
+}
+
+.navbar .left-side-navbar {
+  flex: 50%;
+  margin: 1em;
+}
+
+.navbar .right-side-navbar {
+  display: flex;
+  flex: 50%;
+  margin: 1em;
+  gap: 2.5em;
+}
+.toggle-theme-button {
+  /* margin-right: 2em;
+  background-color: transparent;
+  font-size: var(--navbar-text-size-button);
+  border: none;
+  color: red; */
+  display: "flex";
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 15;
+  color: orange;
+  padding-right: 2;
+}
+.search {
+  width: 50%;
+  height: 2rem;
+  box-shadow: 0 0 5px white;
+  padding: 0 1rem;
+  background-color: var(--search-bg-color);
+  color: var(--search-text-color);
+  font-size: 2rem;
+  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
+  caret-color: teal;
+}
+.search:focus {
+  outline: none;
+}
+.searchBtn {
+  border: 0;
+  width: 4rem;
+  height: 2rem;
+  cursor: pointer;
+  background-color: var(--search-bg-color);
+  /* color: var(--color3); */
+  color: var(--search-text-color);
+  box-shadow: 0 0 5px var(--search-text-color);
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  /* border: 2px solid #000000; */
+}
+.search-container {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 650px) {
+  .hidden {
+    display: block;
+  }
+  a
+  /* ,.navbar right-side-navbar a { */ {
+    display: block;
+  }
+  .search {
+    width: 10rem;
+  }
+  #hidden {
+    position: absolute;
+    left: 0;
+    top: 4rem;
+    height: auto;
+    width: 100%;
+    background-color: var(--color1);
+  }
+}
