@@ -1,0 +1,4 @@
+.logo-container {
+  height: calc(100vh - 4rem);
+  color: var(--color1);
+}

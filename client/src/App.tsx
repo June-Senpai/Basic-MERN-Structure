@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import { Logo } from "./pages/Logo/Logo";
+import { Search } from "./pages/Search";
+import { Cart } from "./pages/cart/Cart";
+import Auth from "./pages/Auth/Auth";
+import Navbar from "./component/navbar/navbar";
+import { createContext, useContext, useState, useEffect } from "react";
+
+type Theme = "dark" | "light";
+type ThemeContextType = {
+  theme: Theme;
+  setTheme: React.Dispatch<React.SetStateAction<Theme>>;
+};
+export const ThemeContext = createContext<ThemeContextType>({
+  theme: "dark",
+  setTheme: () => {},
+});
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [theme, setTheme] = useState<Theme>("light");
+
+  useEffect(() => {
+    document.body.className = theme; // add theme value as class name to body element
+  }, [theme]);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div className={theme}>
+        <div className="App">
+          <Router>
+            <Navbar setTheme={setTheme} theme={theme} />
+            <Routes>
+              <Route path="/" element={<Logo />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/auth" element={<Auth />} />
+              {/* //!for any unknown route without /random-word */}
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </Router>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    </ThemeContext.Provider>
+  );
 }
 
-export default App
+export default App;
