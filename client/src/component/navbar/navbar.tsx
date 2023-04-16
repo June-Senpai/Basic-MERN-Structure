@@ -1,8 +1,18 @@
 import React, { useState, FC } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import "./navbar.css";
-import searchImage from "../../public/search.png";
+function getActiveClass(route: any, location: any) {
+  // console.log({ route });
+  switch (location.pathname) {
+    case route:
+      return "activeTab";
+      break;
 
+    default:
+      return "tab";
+      break;
+  }
+}
 import ReactSwitch from "react-switch";
 
 type Theme = "light" | "dark";
@@ -37,26 +47,58 @@ const Navbar: FC<NavbarProps> = ({ setTheme, theme }) => {
       setTheme("light");
     }
   };
-  const [showLinks, setShowLinks] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [showLinks, setShowLinks] = useState(false);
   return (
     <div>
       <div className={theme}>
         <div className="navbar">
-          <div className="left-side-navbar" id={showLinks ? "hidden" : ""}>
-            <NavLink to="/">Home</NavLink>
+          <div
+            className="left-side-navbar"
+            // id={showLinks ? "hidden" : ""}
+            // <button className="🍔">Open</button>
+          >
+            <button
+              className="sidebutton"
+              onClick={() => setShowLinks(!showLinks)}
+            >
+              {showLinks ? (
+                <img
+                  src="https://cdn1.iconfinder.com/data/icons/blobby-iconset/100/Close_with_circle-512.png"
+                  alt="menu icon"
+                  width={50}
+                />
+              ) : (
+                <img
+                  src="https://cdn3.iconfinder.com/data/icons/social-messaging-ui-color-line/254000/30-512.png"
+                  alt="menu icon"
+                  width={50}
+                />
+              )}
+            </button>
+            <div className="link-container" id={showLinks ? "hidden" : ""}>
+              <NavLink className={getActiveClass("/", location)} to="/">
+                Home
+              </NavLink>
+            </div>
           </div>
 
           <div className="search-container">
-            <button className="🍔">Open</button>
             <input className="search" type="text" placeholder="search" />
             <button className="searchBtn">Search</button>
           </div>
 
-          <div className="right-side-navbar" id={showLinks ? "hidden" : ""}>
-            <NavLink to="/cart">Cart</NavLink>
-            <NavLink to="/auth">Login/Register</NavLink>
+          <div className="link-container" id={showLinks ? "hidden" : ""}>
+            <div className="right-side-navbar" id={showLinks ? "hidden" : ""}>
+              <NavLink className={getActiveClass("/cart", location)} to="/cart">
+                Cart
+              </NavLink>
+              <NavLink className={getActiveClass("/auth", location)} to="/auth">
+                Login/Register
+              </NavLink>
+            </div>
           </div>
-
           {/* <button className="toggle-theme-button" onClick={toggleTheme}>
             Toggle Theme
           </button> */}

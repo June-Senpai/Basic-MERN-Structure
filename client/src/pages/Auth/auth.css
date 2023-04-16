@@ -33,7 +33,6 @@
 .blueBg .box-auth {
   position: relative;
   width: 50%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,7 +58,7 @@
 
 .formBx {
   position: absolute;
-  top: 70px;
+  top: 10px;
   left: 50px;
   width: 500px;
   height: 35rem;
@@ -149,10 +148,12 @@
   .formBx {
     width: 410px;
     height: 600px;
-    top: 50px;
+    top: 10px;
     left: 88px;
     box-shadow: none;
     border-radius: 0;
+    border-width: 10000px;
+    border-color: red;
   }
   .box-auth.signup {
     top: 400px;
@@ -172,5 +173,16 @@
   }
   .container-for-auth {
     background: linear-gradient(to bottom, red, rgb(17, 103, 243));
+  }
+}
+@media (max-width: 680px) {
+  .form-box {
+    position: relative;
+    top: 150px;
+    right: 79px;
+  }
+
+  .formBx {
+    top: 0;
   }
 }
